@@ -20,6 +20,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Builder
@@ -34,8 +35,8 @@ import java.util.List;
 public class User implements UserDetails {
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
 
     @Column(name = "username", unique = true, nullable = false)
     private String username;
@@ -43,7 +44,7 @@ public class User implements UserDetails {
     @Column(name = "email", unique = true, nullable = false)
     private String email;
 
-    @Column(name = "password", nullable = false)
+    @Column(name = "hashed_password", nullable = false)
     private String password;
 
     @Enumerated(EnumType.STRING)

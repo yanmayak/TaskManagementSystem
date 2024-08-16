@@ -1,18 +1,19 @@
 spring:
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.xml
+    default-schema: ${SCHEMA_NAME:task_management_system}
   jpa:
     database: POSTGRESQL
     show-sql: true
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: none
   datasource:
     url: jdbc:postgresql://localhost:5432/demo_db
     username: user
     password: pass
     driverClassName: org.postgresql.Driver
-  autoconfigure:
-    exclude:
-      - org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
-      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+  profiles:
+    active: local
 springdoc:
   swagger-ui:
     path: api

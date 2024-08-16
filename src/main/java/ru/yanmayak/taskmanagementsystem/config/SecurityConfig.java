@@ -19,6 +19,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import ru.yanmayak.taskmanagementsystem.security.JwtAuthFilter;
+import ru.yanmayak.taskmanagementsystem.service.JwtService;
 import ru.yanmayak.taskmanagementsystem.service.UserService;
 
 import java.util.List;
@@ -28,7 +29,7 @@ import java.util.List;
 @EnableMethodSecurity
 @RequiredArgsConstructor
 public class SecurityConfig {
-    private final JwtAuthFilter jwtAuthFilter;
+    //private final JwtAuthFilter jwtAuthFilter;
     private final UserService userService;
     private static final String PRIVATE_ENDPOINT = "/api/private";
     private static final String PUBLIC_ENDPOINT = "/api/public/**";
@@ -66,7 +67,7 @@ public class SecurityConfig {
     }
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http, JwtService jwtService) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable)
                 .cors(cors -> cors.configurationSource(request -> {
                     var corsConfiguration = new CorsConfiguration();
@@ -82,7 +83,7 @@ public class SecurityConfig {
                         .requestMatchers(PRIVATE_ENDPOINT).authenticated())
                 .sessionManagement(manager -> manager.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider())
-                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(new JwtAuthFilter(jwtService, userService), UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
