@@ -27,7 +27,7 @@ public class AuthService {
                                         .roles(String.valueOf(ERole.ROLE_USER))
                                                 .build();
 
-        userService.create((ru.yanmayak.taskmanagementsystem.model.User) user);
+        userService.create((ru.yanmayak.taskmanagementsystem.config.entity.User) user);
 
         var jwt = jwtService.generateToken(user);
         return new JwtAuthResponse(jwt);

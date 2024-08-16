@@ -5,7 +5,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import ru.yanmayak.taskmanagementsystem.model.User;
+import ru.yanmayak.taskmanagementsystem.config.entity.User;
 import ru.yanmayak.taskmanagementsystem.repository.UserRepository;
 
 @Service
