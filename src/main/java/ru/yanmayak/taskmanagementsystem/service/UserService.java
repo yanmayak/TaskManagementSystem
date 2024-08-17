@@ -6,6 +6,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import ru.yanmayak.taskmanagementsystem.config.entity.User;
+import ru.yanmayak.taskmanagementsystem.model.ERole;
 import ru.yanmayak.taskmanagementsystem.repository.UserRepository;
 
 @Service
@@ -39,5 +40,12 @@ public class UserService {
     public User getCurrentUser() {
         var username = SecurityContextHolder.getContext().getAuthentication().getName();
         return getByUsername(username);
+    }
+
+    @Deprecated
+    public void getAdmin() {
+        var user = getCurrentUser();
+        user.setRole(ERole.ROLE_ADMIN);
+        save(user);
     }
 }

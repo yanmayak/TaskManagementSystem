@@ -12,7 +12,7 @@ import ru.yanmayak.taskmanagementsystem.service.UserService;
 @RequestMapping("/example")
 @RequiredArgsConstructor
 @Tag(name = "Аутетнтификация")
-public class ExmpleController {
+public class ExampleController {
     private final UserService userService;
 
     @GetMapping("/api/private")
@@ -25,5 +25,11 @@ public class ExmpleController {
     @Operation(summary = "Доступно для всех")
     public String message2() {
         return "hello";
+    }
+
+    @GetMapping("/get-admin")
+    @Operation(summary = "Получить роль ADMIN (для демонстрации)")
+    public void getAdmin() {
+        userService.getAdmin();
     }
 }
