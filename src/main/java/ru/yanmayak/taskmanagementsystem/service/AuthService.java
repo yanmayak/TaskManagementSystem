@@ -46,6 +46,4 @@ public class AuthService {
         var jwt = jwtService.generateToken(user);
         return new JwtAuthResponse(jwt);
     }
-
-
 }
