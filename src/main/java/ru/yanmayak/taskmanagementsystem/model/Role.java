@@ -1,6 +1,6 @@
 package ru.yanmayak.taskmanagementsystem.model;
 
-public enum ERole {
+public enum Role {
     ROLE_USER,
     ROLE_ADMIN;
 }

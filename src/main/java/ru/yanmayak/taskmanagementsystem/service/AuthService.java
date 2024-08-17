@@ -3,13 +3,13 @@ package ru.yanmayak.taskmanagementsystem.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import ru.yanmayak.taskmanagementsystem.config.entity.User;
 import ru.yanmayak.taskmanagementsystem.dto.auth.JwtAuthResponse;
 import ru.yanmayak.taskmanagementsystem.dto.auth.SignInRequest;
 import ru.yanmayak.taskmanagementsystem.dto.auth.SignUpRequest;
-import ru.yanmayak.taskmanagementsystem.model.ERole;
+import ru.yanmayak.taskmanagementsystem.model.Role;
 
 @Service
 @RequiredArgsConstructor
@@ -19,19 +19,19 @@ public class AuthService {
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;
 
-    public JwtAuthResponse signUp(SignUpRequest signUpRequest) {
+    public JwtAuthResponse signUp(SignUpRequest request) {
 
         var user = User.builder()
-                        .username(signUpRequest.getUsername())
-                                .password(passwordEncoder.encode(signUpRequest.getPassword()))
-                                        .roles(String.valueOf(ERole.ROLE_USER))
-                                                .build();
+                .username(request.getUsername())
+                .email(request.getEmail())
+                .password(passwordEncoder.encode(request.getPassword()))
+                .role(Role.ROLE_USER)
+                .build();
 
-        userService.create((ru.yanmayak.taskmanagementsystem.config.entity.User) user);
+        userService.create(user);
 
         var jwt = jwtService.generateToken(user);
         return new JwtAuthResponse(jwt);
-
     }
 
     public JwtAuthResponse signIn(SignInRequest signInRequest) {
