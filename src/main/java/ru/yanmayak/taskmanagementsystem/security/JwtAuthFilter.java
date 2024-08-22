@@ -14,8 +14,8 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
-import ru.yanmayak.taskmanagementsystem.service.JwtService;
-import ru.yanmayak.taskmanagementsystem.service.UserService;
+import ru.yanmayak.taskmanagementsystem.service.jwt.JwtService;
+import ru.yanmayak.taskmanagementsystem.service.user.UserService;
 import java.io.IOException;
 
 @Component
@@ -25,9 +25,6 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     public static final String HEADER_NAME = "Authorization";
     private final JwtService jwtService;
     private final UserService userService;
-
-
-
 
     @Override
     protected void doFilterInternal(

@@ -1,12 +1,12 @@
-package ru.yanmayak.taskmanagementsystem.service;
+package ru.yanmayak.taskmanagementsystem.service.user;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import ru.yanmayak.taskmanagementsystem.config.entity.User;
-import ru.yanmayak.taskmanagementsystem.model.Role;
+import ru.yanmayak.taskmanagementsystem.entity.User;
+import ru.yanmayak.taskmanagementsystem.entity.constant.Role;
 import ru.yanmayak.taskmanagementsystem.repository.UserRepository;
 
 @Service

@@ -5,18 +5,18 @@ spring:
     hibernate:
       ddl-auto: create-drop
   datasource:
-    url: ${PG_URL:jdbc:postgresql://localhost:5432/your-db}
-    username: ${PG_ROOT:root}
-    password: ${PG_PASS:pass}
+    url: ${PG_URL:jdbc:postgresql://localhost:5432/TaskManagementSystem}
+    username: ${PG_ROOT:postgres}
+    password: ${PG_PASS:yanmMayak0109}
     driver-class-name: org.postgresql.Driver
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
       maximum-pool-size: ${HIKARI_MAXIMUM_POOL_SIZE:5}
-      jdbc-url: ${PG_URL:jdbc:postgresql://localhost:5432/your-db}
+      jdbc-url: ${PG_URL:jdbc:postgresql://localhost:5432/TaskManagementSystem}
       schema: public
 springdoc:
   swagger-ui:
     path: api
 jwt:
   token:
-    secret: secret
+    secret: 53A73E5F1C4E0A2D3B5F2D784E6A1B423D6F247D1F6E5C3A596D635A75327855

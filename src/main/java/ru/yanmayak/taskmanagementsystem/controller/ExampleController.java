@@ -7,12 +7,12 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ru.yanmayak.taskmanagementsystem.service.UserService;
+import ru.yanmayak.taskmanagementsystem.service.user.UserService;
 
 @RestController
 @RequestMapping("/example")
 @RequiredArgsConstructor
-@Tag(name = "Аутетнтификация")
+@Tag(name = "Аутентификация")
 public class ExampleController {
     private final UserService userService;
 
