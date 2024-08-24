@@ -31,7 +31,7 @@ public class Comment implements Serializable {
     private Task task;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "author_id", nullable = false)
     private User author;
 
     @Column(name = "content")

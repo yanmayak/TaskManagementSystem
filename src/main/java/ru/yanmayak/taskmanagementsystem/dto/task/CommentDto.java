@@ -1,9 +1,10 @@
 package ru.yanmayak.taskmanagementsystem.dto.task;
 
-import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ru.yanmayak.taskmanagementsystem.dto.user.UserDto;
+
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -12,8 +13,10 @@ import java.util.UUID;
 @AllArgsConstructor
 public class CommentDto {
     private UUID id;
-    private UUID authorId;
+    private UserDto author;
+    private UserDto task;
     private UUID taskId;
+    private UUID authorId;
     private String content;
     private LocalDateTime publishDate;
 }

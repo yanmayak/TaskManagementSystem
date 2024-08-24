@@ -6,8 +6,8 @@ spring:
       ddl-auto: create-drop
   datasource:
     url: ${PG_URL:jdbc:postgresql://localhost:5432/TaskManagementSystem}
-    username: ${PG_ROOT:postgres}
-    password: ${PG_PASS:yanmMayak0109}
+    username: ${PG_ROOT:root}
+    password: ${PG_PASS:pass}
     driver-class-name: org.postgresql.Driver
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
@@ -19,4 +19,4 @@ springdoc:
     path: api
 jwt:
   token:
-    secret: 53A73E5F1C4E0A2D3B5F2D784E6A1B423D6F247D1F6E5C3A596D635A75327855
+    secret: secret

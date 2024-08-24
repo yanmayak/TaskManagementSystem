@@ -14,7 +14,7 @@ import ru.yanmayak.taskmanagementsystem.dto.auth.SignUpRequest;
 import ru.yanmayak.taskmanagementsystem.service.jwt.AuthService;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/api/v1/auth")
 @RequiredArgsConstructor
 @Tag(name = "Аутентификация")
 public class AuthController {

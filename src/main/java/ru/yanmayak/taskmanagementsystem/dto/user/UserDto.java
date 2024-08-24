@@ -1,4 +1,4 @@
-package ru.yanmayak.taskmanagementsystem.dto.task;
+package ru.yanmayak.taskmanagementsystem.dto.user;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -2,6 +2,8 @@ package ru.yanmayak.taskmanagementsystem.entity;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -45,20 +47,18 @@ public class Task implements Serializable {
     private String description;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "author_id")
     private User author;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "assignee_id")
     private User assignee;
 
     @Column(name = "priority")
-    @Enumerated(EnumType.STRING)
-    private TaskPriority priority;
+    private String priority;
 
     @Column(name = "status")
-    @Enumerated(EnumType.STRING)
-    private TaskStatus status;
+    private String status;
 
     @Column(name = "publish_date", nullable = false)
     private LocalDateTime publishDate;
@@ -66,8 +66,7 @@ public class Task implements Serializable {
     @Column(name = "deadline")
     private LocalDateTime deadline;
 
-    //TODO: уточнить нужно ли в обе стороны указывать
-    @OneToMany(mappedBy = "task", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany
     private List<Comment> comments;
 }
 

@@ -1,24 +1,24 @@
 package ru.yanmayak.taskmanagementsystem.dto.task;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
+import ru.yanmayak.taskmanagementsystem.dto.user.UserDto;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Data
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 public class TaskDto {
+    private UUID id;
     private String title;
     private String description;
     private String priority;
     private String status;
+    private UserDto author;
     private UUID authorId;
+    private UserDto assignee;
     private UUID assigneeId;
     private LocalDateTime publishDate;
     private LocalDateTime deadline;
