@@ -1,27 +1,21 @@
 package ru.yanmayak.taskmanagementsystem.entity;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
-import jakarta.persistence.ElementCollection;
-import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import ru.yanmayak.taskmanagementsystem.entity.constant.TaskPriority;
-import ru.yanmayak.taskmanagementsystem.entity.constant.TaskStatus;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -46,27 +40,29 @@ public class Task implements Serializable {
     @Column(name = "description", nullable = false)
     private String description;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "author_id")
     private User author;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "assignee_id")
     private User assignee;
 
     @Column(name = "priority")
-    private String priority;
+    @Enumerated(value = EnumType.STRING)
+    private TaskPriority priority;
 
     @Column(name = "status")
-    private String status;
+    @Enumerated(value = EnumType.STRING)
+    private TaskStatus status;
 
-    @Column(name = "publish_date", nullable = false)
-    private LocalDateTime publishDate;
+    @Column(name = "created_date", nullable = false)
+    private LocalDateTime createdDate;
 
-    @Column(name = "deadline")
-    private LocalDateTime deadline;
+    @Column(name = "end_date")
+    private LocalDateTime closedDate;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Comment> comments;
 }
 

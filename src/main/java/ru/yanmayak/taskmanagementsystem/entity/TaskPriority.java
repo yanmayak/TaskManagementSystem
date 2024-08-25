@@ -1,4 +1,4 @@
-package ru.yanmayak.taskmanagementsystem.entity.constant;
+package ru.yanmayak.taskmanagementsystem.entity;
 
 public enum TaskPriority {
     PRIORITY_LOW,
