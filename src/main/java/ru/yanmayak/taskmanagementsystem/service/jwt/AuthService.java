@@ -1,15 +1,16 @@
-package ru.yanmayak.taskmanagementsystem.service;
+package ru.yanmayak.taskmanagementsystem.service.jwt;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import ru.yanmayak.taskmanagementsystem.config.entity.User;
+import ru.yanmayak.taskmanagementsystem.entity.User;
 import ru.yanmayak.taskmanagementsystem.dto.auth.JwtAuthResponse;
 import ru.yanmayak.taskmanagementsystem.dto.auth.SignInRequest;
 import ru.yanmayak.taskmanagementsystem.dto.auth.SignUpRequest;
-import ru.yanmayak.taskmanagementsystem.model.Role;
+import ru.yanmayak.taskmanagementsystem.entity.constant.Role;
+import ru.yanmayak.taskmanagementsystem.service.user.UserService;
 
 @Service
 @RequiredArgsConstructor

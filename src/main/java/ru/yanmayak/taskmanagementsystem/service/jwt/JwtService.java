@@ -1,4 +1,4 @@
-package ru.yanmayak.taskmanagementsystem.service;
+package ru.yanmayak.taskmanagementsystem.service.jwt;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -8,7 +8,7 @@ import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
-import ru.yanmayak.taskmanagementsystem.config.entity.User;
+import ru.yanmayak.taskmanagementsystem.entity.User;
 import java.security.Key;
 import java.util.Date;
 import java.util.HashMap;

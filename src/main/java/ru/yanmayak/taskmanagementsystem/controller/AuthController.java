@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 import ru.yanmayak.taskmanagementsystem.dto.auth.JwtAuthResponse;
 import ru.yanmayak.taskmanagementsystem.dto.auth.SignInRequest;
 import ru.yanmayak.taskmanagementsystem.dto.auth.SignUpRequest;
-import ru.yanmayak.taskmanagementsystem.service.AuthService;
+import ru.yanmayak.taskmanagementsystem.service.jwt.AuthService;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/api/v1/auth")
 @RequiredArgsConstructor
 @Tag(name = "Аутентификация")
 public class AuthController {
@@ -27,7 +27,7 @@ public class AuthController {
     }
 
     @Operation(summary = "Авторизация пользователя")
-    @PostMapping("/signing")
+    @PostMapping("/signin")
     public JwtAuthResponse signIn(@RequestBody @Valid SignInRequest signInRequest) {
         return authService.signIn(signInRequest);
     }
