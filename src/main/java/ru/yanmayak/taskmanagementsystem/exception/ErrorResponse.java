@@ -1,4 +1,4 @@
-package ru.yanmayak.taskmanagementsystem.exeption;
+package ru.yanmayak.taskmanagementsystem.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
