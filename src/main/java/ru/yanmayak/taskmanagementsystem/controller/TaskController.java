@@ -69,7 +69,7 @@ public class TaskController {
 
     @GetMapping("/all")
     @Operation(summary = "Получение списка всех задач")
-            private ResponseEntity<List<TaskDto>> getAllTasks() {
+            public ResponseEntity<List<TaskDto>> getAllTasks() {
         List<TaskDto> tasks = taskService.getAllTasks();
         return ResponseEntity.ok(tasks);
     }
