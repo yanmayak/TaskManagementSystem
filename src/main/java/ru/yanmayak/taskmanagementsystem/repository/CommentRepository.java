@@ -9,5 +9,5 @@ import java.util.UUID;
 
 @Repository
 public interface CommentRepository extends JpaRepository<Comment, UUID> {
-    Page<Comment> findAllByTaskId(UUID taskId, Pageable pageable);
+    Page<Comment> findAllByTaskIdOrderByPublishDateDesc(UUID taskId, Pageable pageable);
 }

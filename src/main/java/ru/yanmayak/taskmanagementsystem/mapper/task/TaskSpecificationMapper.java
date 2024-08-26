@@ -1,4 +1,4 @@
-package ru.yanmayak.taskmanagementsystem.mapper;
+package ru.yanmayak.taskmanagementsystem.mapper.task;
 
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
